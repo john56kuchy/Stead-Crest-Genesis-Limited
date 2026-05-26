@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Stead Crest Genesis Ltd | Publishing, Printing & Branding</title>
+  <meta name="description" content="Stead Crest Genesis Ltd — books publishing, printing, design, branding and school & office supplies. Modern, fast and world-class.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #ffffff;
+      color: #2C2E3A;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --yellow: #FEA00C;
+      --blue: #001EFF;
+      --ink: #2C2E3A;
+      --light-bg: #f7f6f2;
+      --white: #ffffff;
+      --soft-blue-bg: #E8EBFF;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: white;
+    }
+
+    .logo img {
+      height: 45px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-cta {
+      background: var(--yellow);
+      color: var(--ink) !important;
+      padding: 0.7rem 1.6rem;
+      border-radius: 3rem;
+      font-weight: 700;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: white;
+    }
+    .btn-dark:hover {
+      background: var(--blue);
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--ink);
+    }
+    .btn-yellow:hover {
+      background: var(--ink);
+      color: var(--yellow);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 2rem 0 4rem;
+    }
+
+    .badge {
+      background: rgba(254, 160, 12, 0.15);
+      color: var(--ink);
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .highlight {
+      position: relative;
+      display: inline-block;
+    }
+    .highlight::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.2rem;
+      height: 0.8rem;
+      background: rgba(254, 160, 12, 0.7);
+      z-index: -1;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+    }
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+    .floating-card {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-radius: 1.2rem;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .icon-circle {
+      background: var(--yellow);
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .section-light {
+      background: var(--light-bg);
+      padding: 5rem 0;
+    }
+    .section-white {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-top: 0.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      text-decoration: none;
+      color: var(--ink);
+      display: block;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+    }
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+    .process-step {
+      text-align: center;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem 1.2rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.3s;
+    }
+    .process-step:hover {
+      transform: translateY(-5px);
+    }
+    .step-icon {
+      font-size: 2rem;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    .featured-work {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .work-item {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      position: relative;
+      height: 280px;
+    }
+    .work-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .work-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: white;
+      padding: 1.5rem;
+      font-weight: 600;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .testimonial-card i {
+      color: var(--yellow);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .client-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 2rem;
+      opacity: 0.6;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--ink);
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .faq-item:hover {
+      border-color: var(--yellow);
+    }
+    .faq-item h4 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cta-banner {
+      background: var(--ink);
+      border-radius: 2.5rem;
+      padding: 3.5rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .marquee-wrapper-desktop {
+      background: #E8EBFF;
+      padding: 1.2rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      animation: scroll 22s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .mobile-fixed-marquee {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #E8EBFF;
+      z-index: 999;
+      padding: 0.8rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    footer {
+      background: var(--ink);
+      color: #ccc;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .process-grid, .featured-work {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        padding: 1rem;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+      .hero-grid, .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .process-grid, .featured-work {
+        grid-template-columns: 1fr;
+      }
+      .marquee-wrapper-desktop {
+        display: none;
+      }
+      .mobile-fixed-marquee {
+        display: block;
+      }
+      body {
+        padding-bottom: 55px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="navbar">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Stead Crest Genesis Logo" style="height:45px;">
+      </div>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <div class="container">
+      <div class="hero-grid reveal">
+        <div>
+          <span class="badge"><i class="fas fa-star" style="color:#FEA00C;"></i> Publishing · Printing · Branding</span>
+          <h1>Ideas, printed <br><span class="highlight">beautifully.</span></h1>
+          <p style="font-size:1.1rem; color:#4a4d59; margin:1.5rem 0; max-width:90%;">
+            Stead Crest Genesis Ltd is an end-to-end publishing, printing and branding house. We turn raw ideas into world-class books, materials and brands — quickly and to the highest standard.
+          </p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.8rem;">
+            <a href="services.html" class="btn btn-dark"><i class="fas fa-arrow-right"></i> Explore Services</a>
+            <a href="catalog.html" class="btn btn-yellow">View Catalog</a>
+          </div>
+          <div class="stats">
+            <div><strong style="font-size:2rem;">500+</strong><br><small>Projects</small></div>
+            <div><strong style="font-size:2rem;">10yrs</strong><br><small>Experience</small></div>
+            <div><strong style="font-size:2rem;">100%</strong><br><small>On time</small></div>
+          </div>
+        </div>
+        <div>
+          <div class="hero-image-wrapper">
+            <img src="assets/hero-print.jpg" alt="Commercial printing press">
+            <div class="floating-card">
+              <div class="icon-circle"><i class="fas fa-bolt"></i></div>
+              <div><strong>Same-day quotes</strong><br><small>Call 0711 580 221</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrolling Services Banner (Desktop - at bottom of landing page, NOT fixed) -->
+    <div class="marquee-wrapper-desktop">
+      <div class="marquee-content">
+        <span style="margin-right:3rem;">✦ BOOKS PUBLISHING</span>
+        <span style="margin-right:3rem;">✦ COMMERCIAL PRINTING</span>
+        <span style="margin-right:3rem;">✦ BRANDING & DESIGN</span>
+        <span style="margin-right:3rem;">✦ SCHOOL SUPPLIES</span>
+        <span style="margin-right:3rem;">✦ OFFICE STATIONERY</span>
+        <span style="margin-right:3rem;">✦ SAME-DAY QUOTES</span>
+        <span style="margin-right:3rem;">✦ BOOKS PUBLISHING</span>
+        <span style="margin-right:3rem;">✦ COMMERCIAL PRINTING</span>
+        <span style="margin-right:3rem;">✦ BRANDING & DESIGN</span>
+        <span style="margin-right:3rem;">✦ SCHOOL SUPPLIES</span>
+        <span style="margin-right:3rem;">✦ OFFICE STATIONERY</span>
+        <span style="margin-right:3rem;">✦ SAME-DAY QUOTES</span>
+      </div>
+    </div>
+
+    <!-- What We Do -->
+    <div class="section-light reveal" id="services">
+      <div class="container">
+        <span style="color:var(--blue); font-weight:700; text-transform:uppercase; letter-spacing:2px;">Our craft</span>
+        <h2 class="section-title">What we do</h2>
+        <div class="grid-3">
+          <a href="services.html" class="service-card"><img src="assets/cat-books.jpg" alt="Books"><div class="card-content"><span style="color:var(--yellow);">01</span><h3>Books Publishing</h3><p>Editorial, layout, ISBN, distribution</p></div></a>
+          <a href="services.html" class="service-card"><img src="assets/cat-print.jpg" alt="Print"><div class="card-content"><span style="color:var(--yellow);">02</span><h3>Commercial Printing</h3><p>Offset & digital, fast turnaround</p></div></a>
+          <a href="services.html" class="service-card"><img src="assets/cat-brand.jpg" alt="Brand"><div class="card-content"><span style="color:var(--yellow);">03</span><h3>Branding & Design</h3><p>Logos, packaging, brand guides</p></div></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="section-white reveal">
+      <div class="container why-grid">
+        <div>
+          <span style="color:var(--blue); font-weight:700; text-transform:uppercase;">Why Stead Crest</span>
+          <h2 style="font-size:2.8rem; font-weight:800;">International standard. <span style="color:var(--yellow);">Local heart.</span></h2>
+          <p style="margin:1.5rem 0; color:#4a4d59;">We bring together publishing rigor, modern print technology and sharp design thinking to deliver work that competes anywhere in the world.</p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.8rem;">
+            <li><i class="fas fa-check-circle" style="color:var(--yellow);"></i> End-to-end — design, print, finish, deliver</li>
+            <li><i class="fas fa-check-circle" style="color:var(--yellow);"></i> Modern offset & digital production</li>
+            <li><i class="fas fa-check-circle" style="color:var(--yellow);"></i> Editorial team for books and manuals</li>
+            <li><i class="fas fa-check-circle" style="color:var(--yellow);"></i> Bulk supply for schools and offices</li>
+          </ul>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div style="background:white; border:1px solid rgba(0,0,0,0.05); border-radius:1.5rem; padding:1.5rem;"><i class="fas fa-bolt" style="color:var(--blue); font-size:1.8rem;"></i><h4>Fast Turnaround</h4><p>Days, not weeks.</p></div>
+          <div style="background:white; border:1px solid rgba(0,0,0,0.05); border-radius:1.5rem; padding:1.5rem;"><i class="fas fa-shield-alt" style="color:var(--blue); font-size:1.8rem;"></i><h4>Quality Promise</h4><p>Every sheet checked.</p></div>
+          <div style="background:white; border:1px solid rgba(0,0,0,0.05); border-radius:1.5rem; padding:1.5rem;"><i class="fas fa-star" style="color:var(--blue); font-size:1.8rem;"></i><h4>Modern Design</h4><p>World-class aesthetics.</p></div>
+          <div style="background:white; border:1px solid rgba(0,0,0,0.05); border-radius:1.5rem; padding:1.5rem;"><i class="fas fa-check-circle" style="color:var(--blue); font-size:1.8rem;"></i><h4>One Partner</h4><p>Concept to delivery.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How We Work -->
+    <div class="section-light reveal">
+      <div class="container">
+        <span style="color:var(--blue); font-weight:700; text-transform:uppercase;">Process</span>
+        <h2 class="section-title">How we work.</h2>
+        <div class="process-grid">
+          <div class="process-step"><i class="fas fa-comments step-icon"></i><h4>1. Consult</h4><p>We listen to your vision and requirements carefully.</p></div>
+          <div class="process-step"><i class="fas fa-pencil-ruler step-icon"></i><h4>2. Design</h4><p>Our team crafts the perfect layout or concept for you.</p></div>
+          <div class="process-step"><i class="fas fa-print step-icon"></i><h4>3. Produce</h4><p>Precision printing with modern offset & digital technology.</p></div>
+          <div class="process-step"><i class="fas fa-shipping-fast step-icon"></i><h4>4. Deliver</h4><p>Quality checked, packaged, and delivered on schedule.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Work -->
+    <div class="section-white reveal">
+      <div class="container">
+        <span style="color:var(--blue); font-weight:700;">Portfolio</span>
+        <h2 class="section-title">Featured projects.</h2>
+        <div class="featured-work">
+          <div class="work-item"><img src="assets/cat-books.jpg" alt="Book project"><div class="work-overlay">Educational Textbook Series</div></div>
+          <div class="work-item"><img src="assets/cat-brand.jpg" alt="Brand project"><div class="work-overlay">Restaurant Brand Identity</div></div>
+          <div class="work-item"><img src="assets/cat-print.jpg" alt="Print project"><div class="work-overlay">Corporate Stationery Suite</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="section-light reveal">
+      <div class="container">
+        <span style="color:var(--blue); font-weight:700;">Testimonials</span>
+        <h2 class="section-title">What our clients say.</h2>
+        <div class="grid-3">
+          <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Stead Crest delivered our school textbooks on time and the quality was exceptional. Highly recommended!"</p><strong>— Jane M., School Director</strong></div>
+          <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"They handled our brand redesign from logo to stationery. Professional, creative, and fast."</p><strong>— David K., Business Owner</strong></div>
+          <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"We've been using their office supply service for two years. Reliable and great prices."</p><strong>— Sarah L., Office Manager</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clients / Industries Served -->
+    <div class="section-white reveal">
+      <div class="container" style="text-align:center;">
+        <span style="color:var(--blue); font-weight:700;">Trusted by</span>
+        <h2 class="section-title">Schools, businesses & authors.</h2>
+        <div class="client-logos">
+          <span><i class="fas fa-school"></i> Schools</span>
+          <span><i class="fas fa-building"></i> Corporates</span>
+          <span><i class="fas fa-pen-fancy"></i> Authors</span>
+          <span><i class="fas fa-church"></i> Institutions</span>
+          <span><i class="fas fa-store"></i> SMEs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-light reveal">
+      <div class="container">
+        <span style="color:var(--blue); font-weight:700;">FAQ</span>
+        <h2 class="section-title">Quick answers.</h2>
+        <div style="max-width:800px; margin-top:2rem;">
+          <div class="faq-item"><h4>What is your typical turnaround time? <i class="fas fa-chevron-down" style="color:var(--yellow);"></i></h4><p style="margin-top:0.5rem; color:#4a4d59;">Most standard print jobs are completed within 3-5 business days. Larger publishing projects depend on scope.</p></div>
+          <div class="faq-item"><h4>Do you deliver outside Nairobi? <i class="fas fa-chevron-down" style="color:var(--yellow);"></i></h4><p style="margin-top:0.5rem; color:#4a4d59;">Yes, we ship nationwide and can arrange delivery to your location.</p></div>
+          <div class="faq-item"><h4>Can I get a sample before bulk printing? <i class="fas fa-chevron-down" style="color:var(--yellow);"></i></h4><p style="margin-top:0.5rem; color:#4a4d59;">Absolutely. We provide digital proofs and physical samples for approval before full production.</p></div>
+          <div class="faq-item"><h4>What file formats do you accept? <i class="fas fa-chevron-down" style="color:var(--yellow);"></i></h4><p style="margin-top:0.5rem; color:#4a4d59;">PDF, AI, PSD, INDD, and high-resolution JPG/PNG files are all accepted.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="container" style="margin: 5rem auto;">
+      <div class="cta-banner reveal">
+        <h2 style="font-size:2.5rem; font-weight:800; color:white;">Ready to start? <br><span style="color:var(--yellow);">Chat with us on WhatsApp.</span></h2>
+        <a href="https://wa.me/254711580221?text=Hello%20Stead%20Crest%20Genesis%2C%20I%20have%20a%20project%20to%20discuss." target="_blank" class="btn btn-yellow" style="font-size:1rem;"><i class="fab fa-whatsapp"></i> Message Us</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Fixed Banner -->
+  <div class="mobile-fixed-marquee">
+    <div class="marquee-content">
+      <span style="margin-right:2.5rem;">✦ BOOKS PUBLISHING</span>
+      <span style="margin-right:2.5rem;">✦ COMMERCIAL PRINTING</span>
+      <span style="margin-right:2.5rem;">✦ BRANDING & DESIGN</span>
+      <span style="margin-right:2.5rem;">✦ SCHOOL SUPPLIES</span>
+      <span style="margin-right:2.5rem;">✦ SAME-DAY QUOTES</span>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <img src="assets/logo.png" alt="logo" style="height:35px; filter:brightness(0) invert(1); margin-bottom:1rem;">
+      <p>Stead Crest Genesis Ltd — Printers Centre Building, Jainsala Road</p>
+      <p>0711 580 221 | steadcrestgenesis@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Services — Stead Crest Genesis Ltd | Publishing, Print & Branding</title>
+  <meta name="description" content="Explore our services: books publishing, school & office supplies, graphic design, printing, and brand identity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --yellow: #FEA00C;
+      --yellow-hover: #e59400;
+      --blue: #001EFF;
+      --ink: #2C2E3A;
+      --light-bg: #f7f6f2;
+      --white: #ffffff;
+      --text-medium: #4B5563;
+      --soft-border: rgba(0,0,0,0.06);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; color: var(--ink); }
+
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--soft-border);
+    }
+    .nav-container {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      font-weight: 700; font-size: 1.25rem; color: var(--ink);
+    }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 10px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-medium); font-weight: 600;
+      font-size: 0.9rem; padding: 10px 18px; border-radius: 50px; transition: 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); background: rgba(254,160,12,0.1); }
+    .nav-links a.active { font-weight: 700; }
+    .nav-cta { background: var(--yellow) !important; color: var(--ink) !important; font-weight: 700 !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+    .hamburger span { width: 26px; height: 2.5px; background: var(--ink); border-radius: 2px; }
+
+    .page-banner {
+      background: linear-gradient(180deg, rgba(254,160,12,0.06) 0%, #ffffff 100%);
+      padding: 8rem 2rem 4rem; text-align: center;
+    }
+    .page-banner h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; }
+    .page-banner p { color: var(--text-medium); font-size: 1.2rem; margin-top: 0.5rem; }
+
+    .section { padding: 5rem 2rem; }
+    .section-container { max-width: 1280px; margin: 0 auto; }
+    .service-detail {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
+      margin-bottom: 5rem;
+    }
+    .service-detail:nth-child(even) { direction: rtl; }
+    .service-detail:nth-child(even) .service-detail-content { direction: ltr; }
+    .service-detail-content h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 12px; }
+    .service-detail-content h2 i { color: var(--yellow); font-size: 2rem; }
+    .service-detail-content p { color: var(--text-medium); margin-bottom: 1.5rem; }
+    .service-detail-content ul { list-style: none; margin-bottom: 1.8rem; }
+    .service-detail-content ul li {
+      padding: 6px 0; color: var(--text-medium); display: flex; align-items: center; gap: 12px;
+    }
+    .service-detail-content ul li i { color: var(--yellow); font-size: 1rem; width: 20px; }
+    .service-detail-image {
+      border-radius: 2rem; overflow: hidden; height: 340px;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);
+    }
+    .service-detail-image img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+      border-radius: 50px; font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: 0.25s; background: var(--yellow); color: var(--ink); border: none;
+    }
+    .btn:hover { background: var(--yellow-hover); }
+
+    footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 4rem 2rem 2rem; }
+    .footer-container { max-width: 1280px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+    .footer-brand h3 { font-size: 1.5rem; font-weight: 700; color: white; }
+    .footer-social { display: flex; gap: 12px; margin-top: 1rem; }
+    .footer-social a { width: 38px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; }
+    .footer-social a:hover { background: var(--yellow); color: var(--ink); }
+    .footer-links h4 { color: white; margin-bottom: 0.8rem; }
+    .footer-links ul { list-style: none; }
+    .footer-links ul li { margin-bottom: 0.5rem; }
+    .footer-links ul li a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
+    .footer-links ul li a:hover { color: var(--yellow); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.85rem; }
+
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .service-detail { grid-template-columns: 1fr; gap: 2rem; }
+      .service-detail:nth-child(even) { direction: ltr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: white; flex-direction: column; padding: 6rem 2rem; box-shadow: -5px 0 20px rgba(0,0,0,0.1); transition: 0.4s; }
+      .nav-links.active { right: 0; }
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Stead Crest Genesis Ltd">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="page-banner">
+    <h1 class="reveal visible">Our Services</h1>
+    <p class="reveal visible">Five expert disciplines to bring your vision to life.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-container">
+      <!-- Books Publishing -->
+      <div class="service-detail reveal">
+        <div class="service-detail-content">
+          <h2><i class="fas fa-book-open"></i> Books Publishing</h2>
+          <p>From raw manuscript to published masterpiece. We handle every step of the publishing journey with care, precision, and industry expertise.</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Professional editing & proofreading</li>
+            <li><i class="fas fa-check-circle"></i> Interior typesetting & layout</li>
+            <li><i class="fas fa-check-circle"></i> ISBN registration & barcode generation</li>
+            <li><i class="fas fa-check-circle"></i> Cover design & book jacket creation</li>
+            <li><i class="fas fa-check-circle"></i> Print-on-demand & bulk print runs</li>
+          </ul>
+          <a href="contact.html" class="btn">Start Your Book <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-detail-image">
+          <img src="assets/cat-books.jpg" alt="Books publishing service">
+        </div>
+      </div>
+
+      <!-- School & Office Supplies -->
+      <div class="service-detail reveal">
+        <div class="service-detail-content">
+          <h2><i class="fas fa-shopping-bag"></i> School & Office Supplies</h2>
+          <p>Quality stationery and supplies for schools, offices, and institutions. Bulk orders, custom branding, and reliable delivery.</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Exercise books & exam pads</li>
+            <li><i class="fas fa-check-circle"></i> Notebooks, journals & planners</li>
+            <li><i class="fas fa-check-circle"></i> Custom-branded stationery</li>
+            <li><i class="fas fa-check-circle"></i> Bulk supply contracts for institutions</li>
+          </ul>
+          <a href="catalog.html" class="btn">View Supplies <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-detail-image">
+          <img src="assets/cat-supplies.jpg" alt="School and office supplies">
+        </div>
+      </div>
+
+      <!-- Graphic Design -->
+      <div class="service-detail reveal">
+        <div class="service-detail-content">
+          <h2><i class="fas fa-pen-fancy"></i> Graphic Design</h2>
+          <p>Visual communication that captivates and converts. Our design team brings creativity and strategic thinking to every project.</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Editorial & publication design</li>
+            <li><i class="fas fa-check-circle"></i> Packaging & product design</li>
+            <li><i class="fas fa-check-circle"></i> Marketing collateral (flyers, brochures, banners)</li>
+            <li><i class="fas fa-check-circle"></i> Social media & digital graphics</li>
+          </ul>
+          <a href="contact.html" class="btn">Request Design <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-detail-image">
+          <img src="assets/cat-brand.jpg" alt="Graphic design services">
+        </div>
+      </div>
+
+      <!-- Print Services -->
+      <div class="service-detail reveal">
+        <div class="service-detail-content">
+          <h2><i class="fas fa-print"></i> Print Services</h2>
+          <p>Offset and digital printing with exceptional color accuracy and finishing. From business cards to coffee-table books.</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Offset printing for large runs</li>
+            <li><i class="fas fa-check-circle"></i> Digital printing for quick turnaround</li>
+            <li><i class="fas fa-check-circle"></i> Binding, lamination & finishing</li>
+            <li><i class="fas fa-check-circle"></i> Quality control on every order</li>
+          </ul>
+          <a href="contact.html" class="btn">Get a Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-detail-image">
+          <img src="assets/cat-print.jpg" alt="Commercial printing press">
+        </div>
+      </div>
+
+      <!-- Brand Identity -->
+      <div class="service-detail reveal">
+        <div class="service-detail-content">
+          <h2><i class="fas fa-star"></i> Brand Identity</h2>
+          <p>Build a brand that stands out and stays remembered. From logo design to complete brand systems that work across every touchpoint.</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Logo design & brand marks</li>
+            <li><i class="fas fa-check-circle"></i> Brand guidelines & style guides</li>
+            <li><i class="fas fa-check-circle"></i> Business cards & letterheads</li>
+            <li><i class="fas fa-check-circle"></i> Complete visual identity systems</li>
+          </ul>
+          <a href="contact.html" class="btn">Build Your Brand <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-detail-image">
+          <img src="assets/hero-print.jpg" alt="Brand identity design">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Stead Crest Genesis Ltd</h3>
+          <p>Publishing, print, design, brand and supplies — all under one roof.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="catalog.html">Catalog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-links"><h4>Services</h4><ul><li><a href="services.html">Books Publishing</a></li><li><a href="services.html">School Supplies</a></li><li><a href="services.html">Office Supplies</a></li><li><a href="services.html">Design & Print</a></li><li><a href="services.html">Branding</a></li></ul></div>
+        <div class="footer-links"><h4>Contact</h4><ul><li><a href="tel:0711580221">0711 580 221</a></li><li><a href="mailto:steadcrestgenesis@gmail.com">Email Us</a></li><li>Printers Center Building, Jainsala Road</li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Stead Crest Genesis Ltd. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+      const revealElements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15 });
+      revealElements.forEach(el => observer.observe(el));
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      });
+    })();
+  </script>
+</body>
+</html>
